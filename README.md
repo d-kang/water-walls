@@ -40,19 +40,21 @@ At index 1
   largestPoolNum = 0
   result = []
   tempNum = 0
-  tempArr = []
+  tempArr = [0] // initialize first wall at index 0
   start at index 1 you get a pool size of 2
+
+  continue to add to tempNum until you hit a block with no waterblocks
+
 
   largestPoolNum = 0
   result = []
   tempNum = 2
-  tempArr = [2]
-  hit a wall represented by 0 water blocks if tempNum > largestPool then replace largestPool and result with temps, reset the temps to 0 and [] respectively
+  tempArr = [0]
+  when you hit a wall with no waterblocks
+  if the tempNum is greater than current Largest
+  then you push up the current index + 1 => 2 + 1 => 3 => [0, 3]
+  then you push up the tempNum which is 2 => [0, 3, 2]
+  and reset the tempNum and tempArr, tempArr is initialized with [i + 1] => [3]
 
-  largestPoolNum = 2
-  result = [2]
-  tempNum = 0
-  tempArr = []
-
-  continue to end of array and return result
+  continue to end of array and return result [3, 8, 11]
 ```
