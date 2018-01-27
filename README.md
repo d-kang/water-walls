@@ -1,5 +1,8 @@
 # water-walls
 [Mini-app] Water Walls
+run `npm install` to download dependencies
+run `npm start` to run node
+visit `http:localhost:1212`
 
 ```Javascript
 const waterWalls = (walls) => {

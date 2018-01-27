@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-
+app.use(express.static(__dirname + '/../src'));
 app.listen(PORT, () => console.log(`lisenting http://localhost:${PORT}`));
 
 require('./routes');
