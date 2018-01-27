@@ -1,33 +1,33 @@
-const { waterWalls } = require('../waterWalls');
+const { countWaterWalls } = require('../waterWalls');
 
 
-describe('waterWalls tests', () => {
+describe('countWaterWalls tests', () => {
   it('should be a function', () => {
-    expect(waterWalls)
+    expect(countWaterWalls)
       .toBeInstanceOf(Function);
   });
 
   it('should return an array', () => {
-    expect(waterWalls([]))
+    expect(countWaterWalls([]))
       .toBeInstanceOf(Array);
   });
 
   it('should return empty array if length is 0', () => {
-    expect(waterWalls([]))
+    expect(countWaterWalls([]))
       .toEqual([]);
   });
 
   it('should return empty array if length is 1', () => {
-    expect(waterWalls([]))
+    expect(countWaterWalls([]))
       .toEqual([]);
   });
 
 
   it('should return the correct output [3, 8, 11]', () => {
-    expect(waterWalls([5, 3, 7, 2, 6, 4, 5, 9, 1, 2]))
+    expect(countWaterWalls([5, 3, 7, 2, 6, 4, 5, 9, 1, 2]))
       .toEqual({
-        blackWalls: [3, 8, 11],
-        storeWaterBlocks: [0, 2, 0, 5, 1, 3, 2, 0, 1, 0]
+        waterWalls: [3, 8, 11],
+        waterBlocks: [0, 2, 0, 5, 1, 3, 2, 0, 1, 0]
       });
   });
 })

@@ -1,4 +1,4 @@
-const waterWalls = (walls) => {
+const countWaterWalls = (walls) => {
   let largestCount = 0;
   let blackWalls = [];
   let tempCount = 0;
@@ -31,11 +31,11 @@ const waterWalls = (walls) => {
   }
   storeWaterBlocks.push(0);
   return {
-    blackWalls,
-    storeWaterBlocks
+    waterWalls: blackWalls,
+    waterBlocks: storeWaterBlocks
   };
 };
 
 module.exports = {
-  waterWalls,
+  countWaterWalls,
 };
