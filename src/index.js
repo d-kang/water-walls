@@ -12,7 +12,7 @@ const appendWaterGrid = (matrix) => {
       const divCell = document.createElement('div');
       if (k === col) {
         divCell.setAttribute('class', 'cell numbers');
-        divCell.innerText = col - i - 1;
+        divCell.innerText = row - i;
       }
       if (matrix[i][k] === 0) {
         divCell.setAttribute('class', 'cell white');
