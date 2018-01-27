@@ -26,25 +26,30 @@ const arrayToMatrix = (arr) => {
     }
   }
 
-  const waterWalls = [3, 8, 11]
-
+  const waterWalls = [3, 8, 11];
   for (let i = 0; i < row; i++) {
     for (let k = 0; k < col; k++) {
       if (k === waterWalls[0] - 1 && matrix[i][k] === 1) {
-        matrix[i][k] = 3;
+        matrix[i][k] = 2;
       }
       if (k === waterWalls[1] - 1 && matrix[i][k] === 1) {
-        matrix[i][k] = 3;
+        matrix[i][k] = 2;
       }
     }
   }
 
-
+  const waterBlocks = [0, 2, 0, 5, 1, 3, 2, 0, 1, 0];
+  for (let i = 0; i < row; i++) {
+    for (let k = 0; k < col; k++) {
+      if (waterBlocks[k] > 0) {
+        if (i < (row - 1 - arr[k] + 1) && i >= (row - arr[k] - waterBlocks[k])) {
+          matrix[i][k] = 3;
+        }
+      }
+    }
+  }
   return matrix;
 };
-
-
-
 
 const result = arrayToMatrix([5, 3, 7, 2, 6, 4, 5, 9, 1, 2]);
 console.log('result', result);
@@ -59,6 +64,8 @@ const waterWalls = [
   [1, 1, 2, 1, 1, 1, 1, 2, 3, 1], // 2
   [1, 1, 2, 1, 1, 1, 1, 2, 1, 1], // 1
 ];
+
+console.log('isEql', JSON.stringify(waterWalls) === JSON.stringify(result));
 
 (function(matrix) {
   const row = matrix.length;
@@ -84,10 +91,8 @@ const waterWalls = [
       if (matrix[i][k] === 3) {
         divCell.setAttribute('class', 'cell cyan');
       }
-
       divRow.append(divCell);
     }
     $grid[0].append(divRow);
   }
-
-})(waterWalls);
+})(result);
