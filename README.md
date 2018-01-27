@@ -4,6 +4,9 @@ run `npm install` to download dependencies
 run `npm start` to run node
 visit `http:localhost:1212`
 
+![Alt text](./src/wwphoto.png "Example WaterWalls Output")
+
+
 ```Javascript
 const waterWalls = (walls) => {
   //constraints: determine which two walls have the most water trapped between them

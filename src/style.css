@@ -1,3 +1,17 @@
+input {
+  width: 20%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+button {
+  border-radius: 5px;
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
 .grid {
   display: table;
   /* border-spacing: 5px */
