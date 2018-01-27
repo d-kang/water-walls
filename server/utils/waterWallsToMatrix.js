@@ -44,7 +44,7 @@ const waterWallsToMatrix = (arr) => {
   const col = arr.length;
   const matrix = createMatrix(row, col);
   const { waterWalls, waterBlocks } = countWaterWalls(arr);
-
+  console.log('waterWalls', waterWalls);
   const withBlocks = addBlocks(row, col, arr, matrix);
   console.log({withBlocks});
   const withWalls = addWalls(row, col, waterWalls, withBlocks);
@@ -52,13 +52,6 @@ const waterWallsToMatrix = (arr) => {
 
   return withWater;
 };
-
-
-
-// const waterWallsToMatrix = (arr) => {
-//
-// }
-
 
 module.exports = {
   addBlocks,

@@ -5,7 +5,7 @@ const countWaterWalls = (walls) => {
   let tempArr = [1];
   const storeWaterBlocks = [0];
   if (walls.length < 3) { return []; }
-  for (var i = 1; i < walls.length - 1; i++) {
+  for (var i = 1; i < walls.length; i++) {
     const current = walls[i];
     const maxLeft = Math.max(...walls.slice(0, i));
     const maxRight = Math.max(...walls.slice(i + 1));
@@ -29,7 +29,6 @@ const countWaterWalls = (walls) => {
       storeWaterBlocks.push(0);
     }
   }
-  storeWaterBlocks.push(0);
   return {
     waterWalls: blackWalls,
     waterBlocks: storeWaterBlocks
