@@ -4,6 +4,8 @@
   "description": "[Mini-app] Water Walls",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
     "test": "jest --watch"
   },
   "repository": {
@@ -19,5 +21,10 @@
   "homepage": "https://github.com/d-kang/water-walls#readme",
   "devDependencies": {
     "jest": "^22.1.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
   }
 }
