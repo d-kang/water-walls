@@ -1,8 +1,8 @@
 # water-walls
-[Mini-app] Water Walls
-run `npm install` to download dependencies
-run `npm start` to run node
-visit `http:localhost:1212`
+[Mini-app] Water Walls <br>
+run `npm install` to download dependencies <br>
+run `npm start` to run node <br>
+visit `http:localhost:1212` <br>
 
 ![Alt text](./src/wwphoto.png "Example WaterWalls Output")
 
