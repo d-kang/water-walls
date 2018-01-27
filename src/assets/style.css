@@ -7,15 +7,16 @@ input {
 button {
   border-radius: 5px;
 }
-
 input[type=text]:focus {
     background-color: lightblue;
 }
 
 .grid {
   display: table;
-  /* border-spacing: 5px */
+}
+.grid#border {
   border-style: solid;
+  border-width: 5px;
 }
 .row {
   display: table-row
@@ -28,11 +29,6 @@ input[type=text]:focus {
   border-style: solid;
   border-width: 0.5px;
 }
-
-/* .one div:first-child {
-  background: red;
-} */
-
 .cell.numbers {
   background: white;
   text-align: center;

@@ -4,7 +4,7 @@ run `npm install` to download dependencies <br>
 run `npm start` to run node <br>
 visit `http:localhost:1212` <br>
 
-![Alt text](./src/wwphoto.png "Example WaterWalls Output")
+![Alt text](./src/assets/wwphoto.png "Example WaterWalls Output")
 
 
 ```Javascript
