@@ -11,6 +11,6 @@
   background: grey;
   display: table-cell;
 }
-.row div:last-child {
+.row div:first-child {
   background: red
 }
