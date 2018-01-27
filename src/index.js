@@ -13,6 +13,11 @@ const waterWalls = [
   [1, 1, 2, 1, 1, 1, 1, 2, 1, 1], // 1
 ];
 
+fetch('http://localhost:1212/api/waterWalls', {hi:'hello'})
+  .then(res => res.json())
+  .then(res => (console.log('res', res), res))
+  .catch(err => console.error('err', err));
+
 (function(matrix) {
   const row = matrix.length;
   const col = matrix[0].length;
