@@ -1,24 +1,66 @@
 const $form = document.getElementById('form');
-
-
-
 const $grid = document.getElementsByClassName('grid');
 
+const createRow = (col) => {
+  return Array(col).fill(0);
+};
 
-(function(arr) {
-  const height = Math.max(...arr) + 1;
-  const length = arr.length + 1;
-  for (let i = 0; i < height; i++) {
+const createMatrix = (row, col) => {
+  const matrix = [];
+  for (var i = 0; i < row; i++) {
+    matrix.push(createRow(col));
+  }
+  return matrix;
+};
+
+const arrayToMatrix = (arr) => {
+  const row = Math.max(...arr);
+  const col = arr.length;
+  const matrix = createMatrix(row, col);
+};
+
+arrayToMatrix([5, 3, 7, 2, 6, 4, 5, 9, 1, 2]);
+
+const waterWalls = [
+  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0],
+  [0, 0, 2, 3, 3, 3, 3, 2, 0, 0],
+  [0, 0, 2, 3, 1, 3, 3, 2, 0, 0],
+  [1, 3, 2, 3, 1, 3, 1, 2, 0, 0],
+  [1, 3, 2, 3, 1, 1, 1, 2, 0, 0],
+  [1, 1, 2, 3, 1, 1, 1, 2, 0, 0],
+  [1, 1, 2, 1, 1, 1, 1, 2, 3, 1],
+  [1, 1, 2, 1, 1, 1, 1, 2, 1, 1],
+];
+
+(function(matrix) {
+  const rows = matrix.length;
+  const col = matrix[0].length;
+  for (let i = 0; i < rows; i++) {
     const divRow = document.createElement('div');
     divRow.setAttribute('class', 'row');
-
-    for (let k = 0; k < length; k++) {
+    for (let k = 0; k < col + 1; k++) {
       const divCell = document.createElement('div');
-      divCell.setAttribute('class', 'cell');
+      if (k === col) {
+        divCell.setAttribute('class', 'cell numbers');
+        divCell.innerText = col - i - 1;
+      }
+      if (matrix[i][k] === 0) {
+        divCell.setAttribute('class', 'cell white');
+      }
+      if (matrix[i][k] === 1) {
+        divCell.setAttribute('class', 'cell grey');
+      }
+      if (matrix[i][k] === 2) {
+        divCell.setAttribute('class', 'cell black');
+      }
+      if (matrix[i][k] === 3) {
+        divCell.setAttribute('class', 'cell cyan');
+      }
+
       divRow.append(divCell);
     }
-
     $grid[0].append(divRow);
   }
 
-})([1, 10, 4, 5, 2, 6]);
+})(waterWalls);
