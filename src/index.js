@@ -12,8 +12,17 @@ const waterWalls = [
   [1, 1, 2, 1, 1, 1, 1, 2, 3, 1], // 2
   [1, 1, 2, 1, 1, 1, 1, 2, 1, 1], // 1
 ];
+const payload = JSON.stringify({ payload: [5, 3, 7, 2, 6, 4, 5, 9, 1, 2] })
+const URL = 'http://localhost:1212/api/waterWalls';
+const post = {
+    method: 'POST',
+    body: JSON.stringify({ payload }),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  };
 
-fetch('http://localhost:1212/api/waterWalls', {hi:'hello'})
+fetch(URL, post)
   .then(res => res.json())
   .then(res => (console.log('res', res), res))
   .catch(err => console.error('err', err));
