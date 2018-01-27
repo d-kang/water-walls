@@ -25,6 +25,9 @@ describe('waterWalls tests', () => {
 
   it('should return the correct output [3, 8, 11]', () => {
     expect(waterWalls([5, 3, 7, 2, 6, 4, 5, 9, 1, 2]))
-      .toEqual([3, 8, 11]);
+      .toEqual({
+        blackWalls: [3, 8, 11],
+        storeWaterBlocks: [0, 2, 0, 5, 1, 3, 2, 0, 1, 0]
+      });
   });
 })

@@ -1,9 +1,9 @@
 const waterWalls = (walls) => {
   let largestCount = 0;
-  let result = [];
+  let blackWalls = [];
   let tempCount = 0;
   let tempArr = [1];
-
+  const storeWaterBlocks = [0];
   if (walls.length < 3) { return []; }
   for (var i = 1; i < walls.length - 1; i++) {
     const current = walls[i];
@@ -14,20 +14,26 @@ const waterWalls = (walls) => {
     if (current < minOfMax) {
       const waterBlocks = minOfMax - current;
       tempCount += waterBlocks;
+      storeWaterBlocks.push(waterBlocks);
     } else {
       if (tempCount > largestCount) {
         tempArr.push(i + 1, tempCount);
         largestCount = tempCount;
-        result = tempArr;
+        blackWalls = tempArr;
         tempCount = 0;
         tempArr = [i + 1];
       } else {
         tempCount = 0;
         tempArr = [i + 1];
       }
+      storeWaterBlocks.push(0);
     }
   }
-  return result;
+  storeWaterBlocks.push(0);
+  return {
+    blackWalls,
+    storeWaterBlocks
+  };
 };
 
 module.exports = {
