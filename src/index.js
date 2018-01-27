@@ -2,6 +2,7 @@ const $form = document.getElementById('form');
 const $grid = document.getElementsByClassName('grid');
 
 const appendWaterGrid = (matrix) => {
+  $grid[0].innerHTML = ''
   const row = matrix.length;
   const col = matrix[0].length;
   for (let i = 0; i < row; i++) {
@@ -34,7 +35,6 @@ const appendWaterGrid = (matrix) => {
 
 
 // '5, 3, 7, 2, 6, 4, 5, 9, 1, 2'
-
 $form.addEventListener('submit', (e) => {
   e.preventDefault();
   const { value } = e.target[0];
@@ -42,6 +42,8 @@ $form.addEventListener('submit', (e) => {
 
 
   const payload = value.split(',');
+
+  console.log('payload', payload);
   const URL = 'http://localhost:1212/api/waterWalls';
   const post = {
       method: 'POST',
