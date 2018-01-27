@@ -1,33 +1,7 @@
 const $form = document.getElementById('form');
 const $grid = document.getElementsByClassName('grid');
 
-const waterWalls = [
-  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0], // 9
-  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0], // 8
-  [0, 0, 2, 3, 3, 3, 3, 2, 0, 0], // 7
-  [0, 0, 2, 3, 1, 3, 3, 2, 0, 0], // 6
-  [1, 3, 2, 3, 1, 3, 1, 2, 0, 0], // 5
-  [1, 3, 2, 3, 1, 1, 1, 2, 0, 0], // 4
-  [1, 1, 2, 3, 1, 1, 1, 2, 0, 0], // 3
-  [1, 1, 2, 1, 1, 1, 1, 2, 3, 1], // 2
-  [1, 1, 2, 1, 1, 1, 1, 2, 1, 1], // 1
-];
-const payload = JSON.stringify({ payload: [5, 3, 7, 2, 6, 4, 5, 9, 1, 2] })
-const URL = 'http://localhost:1212/api/waterWalls';
-const post = {
-    method: 'POST',
-    body: JSON.stringify({ payload }),
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    })
-  };
-
-fetch(URL, post)
-  .then(res => res.json())
-  .then(res => (console.log('res', res), res))
-  .catch(err => console.error('err', err));
-
-(function(matrix) {
+const appendWaterGrid = (matrix) => {
   const row = matrix.length;
   const col = matrix[0].length;
   for (let i = 0; i < row; i++) {
@@ -55,4 +29,20 @@ fetch(URL, post)
     }
     $grid[0].append(divRow);
   }
-})(waterWalls);
+};
+
+const payload = [5, 3, 7, 2, 6, 4, 5, 9, 1, 2];
+const URL = 'http://localhost:1212/api/waterWalls';
+const post = {
+    method: 'POST',
+    body: JSON.stringify({ payload }),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  };
+
+fetch(URL, post)
+  .then(res => res.json())
+  .then(res => (console.log('res', res), res))
+  .then(res => (appendWaterGrid(res), res))
+  .catch(err => console.error('err', err));
