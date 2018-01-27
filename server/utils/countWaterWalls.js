@@ -37,5 +37,5 @@ const countWaterWalls = (walls) => {
 };
 
 module.exports = {
-  countWaterWalls,
+  countWaterWalls
 };

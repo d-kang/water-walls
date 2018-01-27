@@ -41,7 +41,7 @@ $form.addEventListener('submit', (e) => {
   console.log('value', value);
 
 
-  const payload = value.split(',');
+  const payload = value.split(',').map(Number);
 
   console.log('payload', payload);
   const URL = 'http://localhost:1212/api/waterWalls';

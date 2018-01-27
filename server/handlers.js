@@ -1,4 +1,4 @@
-const { waterWallsToMatrix } = require('./waterWallsToMatrix');
+const { waterWallsToMatrix } = require('./utils/waterWallsToMatrix');
 
 const waterWallsHandler = (req, res) => {
   const { payload } = req.body;

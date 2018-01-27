@@ -2,7 +2,6 @@ const { countWaterWalls } = require('./countWaterWalls');
 const { createMatrix } = require('./helpers');
 
 const waterWallsToMatrix = (arr) => {
-  console.log('arr', arr);
   const row = Math.max(...arr);
   const col = arr.length;
   const matrix = createMatrix(row, col);
